@@ -18,7 +18,7 @@
     <hr>    
 
     <div class="section">
-        <p>“Fine particulate matter,” “PM 2.5,” “soot,” or just plain, old “air pollution” occurs when pollutant particles themselves are 2.5 microns or smaller. While they may be small, these particles affect more people around the world than any other pollutant, and pose “the greatest risk” to global health, according to the <a href="https://stats.oecd.org/Index.aspx?DataSetCode=EXP_PM2_5#">Organization for Economic Cooperation and Development</a>.</p>
+        <p>“Fine particulate matter,” “PM2.5,” “soot,” or just plain, old “air pollution” occurs when pollutant particles themselves are 2.5 microns or smaller. While they may be small, these particles affect more people around the world than any other pollutant, and pose “the greatest risk” to global health, according to the <a href="https://stats.oecd.org/Index.aspx?DataSetCode=EXP_PM2_5#">Organization for Economic Cooperation and Development</a>.</p>
         <p>The U.S.-based Environmental Protection Agency is preparing a report that could cut daily exposure limits to fine particulate matter from 35 micrograms per cubic meter to 30 or 25, according to <a href="https://www.eenews.net/articles/epa-staff-no-need-to-tighten-soot-limits/">E&E News</a>. The report could arrive as early as this summer, says the <a href="https://www.sej.org/publications/tipsheet/fine-particle-pollution-will-soon-spawn-stormcloud-news">Society for Environmental Journalists.</a></p>
         <p>In addition to daily exposure limits, the EPA also offers standards for mean annual exposure: between <a href="https://www.epa.gov/pm-pollution/national-ambient-air-quality-standards-naaqs-pm">12 and 15 micrograms per cubic meter</a>. While the U.S. fell within that range in 2019, mean annual exposure to PM2.5 across the globe was 42.5 in 2019, according to OECD data.</p>
         <p>Mean annual exposure obscures daily risk, as well as local risks. This map should not be used as a measure of “good” versus “bad” exposure levels — such assessments are better suited for real-time data, which can be found here in <a href="https://www.unep.org/explore-topics/air/what-we-do/monitoring-air-quality/urban-air-action-platform">live map</a> updated by the U.N. — rather, it reflects the general trajectory of countries’ overall emission of soot by showing the percent change in PM2.5 micrograms per cubic meter each has seen from 1990 to 2019. You can click on each country below to see its specific percent increase or decrease, as well as its ranking among the world for PM2.5 emissions as of 2019.</p>
@@ -26,7 +26,32 @@
         <h3>Percent change in mean annual exposure to PM2.5 from 1990 to 2019</h3>       
 
             <div id='map'>
+                <div id='title' class="title">
+                    <div id="pctChange" class="legend">
+                        <h4>Percent change in mean annual concentration of PM2.5 by country from 1990 to 2019</h4>
+                        <div><span style="background-color: #018571"></span>-100%</div>
+                        <div><span style="background-color: #80cdc1"></span>-50</div>
+                        <div><span style="background-color: #f5f5f5"></span>0</div>
+                        <div><span style="background-color: #dfc27d"></span>50</div>
+                        <div><span style="background-color: #a6611a"></span>100</div>
+                    </div>
+                    
+                </div>
+                <!-- <div class='my-legend'>
+                    <div class='legend-title'>The Title or Explanation of your Map</div>
+                    <div class='legend-scale'>
+                      <ul class='legend-labels'>
+                        <li><span style='background:#F1EEF6;'></span>0 - 20%</li>
+                        <li><span style='background:#BDC9E1;'></span>40%</li>
+                        <li><span style='background:#74A9CF;'></span>60%</li>
+                        <li><span style='background:#2B8CBE;'></span>80%</li>
+                        <li><span style='background:#045A8D;'></span>100%</li>
+                      </ul>
+                    </div>
+                    <div class='legend-source'>Source: <a href="#link to source">Name of source</a></div>
+                    </div> -->
             </div>
+            
             <p>Some countries with the greatest improvement still have relatively lower readings of PM2.5 when compared to others. For example, the U.S. saw quite a significant reduction in PM2.5 emissions between 1990 and 2019, nearly a 50 percent decrease. But the United States’ PM2.5 emissions were already low in 1990 relative to the globe; it moved from 13 micrograms of PM2.5 per cubic meter to 7 in 2019, ranking sixth in the world for lowest emissions, behind Sweeden, Estonia, Norway, Iceland and Canada.</p>
             <p>Bolivia, on the other hand, shows a fairly similar decrease in emissions, just under 50 percent across the three-decade period. But Bolivia’s reduction in PM2.5 far outpaces the United States, moving from 51 micrograms per cubic meter in 1990 to 27 in 2019.</p>
             <p>Meanwhile, while China shows a slight improvement in mean exposure to PM2.5, it ranks fifth in the world for the percent of premature deaths attributed to fine particulate matter, measured annually per 1000 people, according to OECD data. Roughly one-fifth of premature deaths in the country were attributed to complications caused by exposure to fine particulate matter in 2019.</p>
@@ -35,56 +60,33 @@
             <h2>India, Nepal and Niger all show mean annual exposure to PM2.5 above 80 in 2019, nearly double the global average</h2>
             <h3>Nationwide readings for mean annual exposure to fine particulate matter for 2019</h3>
             <div id='map2'>
+                <div id='title' class="title">
+                        <div id="pmExposure" class="legend">
+                            <h4>Mean annual concentration of PM2.5 in 2019, in micrograms per cubic meter</h4>
+                            <div><span style="background-color: #fffbc3"></span>0</div>
+                            <div><span style="background-color: #850026"></span>100</div>
+                        </div>
+                       
+
+                    </div>
+                </div>
+
+                    <!-- <h4>Mean annual concentration of PM2.5 by country in 2019</h4>
+                    <div class='legend-scale'>
+                      <ul class='legend-labels'>
+                        <li><span style='background:#fffbc3;'></span>0 </li>
+                        <li><span style='background:#850026;'></span>100</li>
+                      </ul>
+                    </div>
+                    <div class='legend-source'>Source: <a href="https://stats.oecd.org/Index.aspx?DataSetCode=EXP_PM2_5">OECD</a></div>
+                    </div> -->
+           
             </div>
             <p>DATA SOURCE: <a href="https://stats.oecd.org/Index.aspx?DataSetCode=EXP_PM2_5#">OCED</a>, which notes concentration estimates are population-weighted. </p>
     </div>
 
     <hr>
-    <!-- <div id='map'>
-    <!-- <div id='title' class="title">
-        <h1>title</h1>
-        <p>words
-            <br>
-            <br>
-            Data source:
-            <br>
-            <p><a href='https://s3.amazonaws.com/tripdata/index.html'>Citibike monthly data</a></p>
-
-        <hr> -->
-        <!-- <div id="turnstile-legend" class="legend2">
-        </div>
-        <div id="income-legend" class="legend">
-            <h4>Percent of votes recieved by each county's winning candidate</h4>
-            <div><span style="background-color: #6193c7"></span>Joe Biden</div>
-            <div><span style="background-color: #cf635d"></span>Donald Trump</div>
-        </div>
-
-        
-        </div> -->
-    <!-- </div>
-</div>
-    <div id='map2'> -->
-    <!-- <div id='title' class="title">
-        <h1>title</h1>
-            <br>
-            <br>
-            Data source:
-            <br>
-           
-        <hr> -->
-        <!-- <div id="turnstile-legend" class="legend2">
-            <h4>Number of votes cast for each county's winning candidate</h4>
-            <p><em>Click on cicles for detailed election information</em></p>
-            <div><span style="background-color: #a4a4a4"></span>&#8594;<span style="background-color: #a4a4a4; height:20px; width:20px"></span> < 50% decrease to > 90% decrease</div>
-        </div>
-        <div id="income-legend" class="legend">
-            <h4>Percent of votes recieved by each county's winning candidate</h4>
-            <div><span style="background-color: #6193c7"></span>Joe Biden</div>
-            <div><span style="background-color: #cf635d"></span>Donald Trump</div>
-        </div> -->
-    <!-- </div>
-</div> --> -->
-   
+    
 
     <script type='text/javascript' src="map.js"></script>
 </body>

@@ -77,7 +77,7 @@ map.on('click', 'pmExposure', function (e) {
     rank = rank;
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML('<h2>'+country+' - No. '+rank+' in the world'+'</h2>'
+        .setHTML('<h2>'+country+' | No. '+rank+' in the world'+'</h2>'
             +'<h4>'+'1990: '+firstMeasure+' micrograms per cubic metre'+'</h4>'
             +'<h4>'+'2019: '+lastMeasure+' micrograms per cubic metre'+'</h4>'
             + '<p>'+pctDiff+' percent since 1990'+'</p>')
@@ -127,21 +127,29 @@ map2.on("load", function () {
           //'rgba(61,153,80,0.55)'
     
 
-               'interpolate',
+            //    'interpolate',
+            //   ['linear'],
+            // ["get", "2019"],
+            // 0,
+            // "#CCEDCC",
+            // 20,
+            // "#99D89D",
+            // 40,
+            // "#66BF85",
+            // 60,
+            // "#33A477",
+            // 85,
+            // "#018571",
+            // 100,
+            // "#2EAA2F"],
+
+            'interpolate', 
               ['linear'],
             ["get", "2019"],
-            0,
-            "#CCEDCC",
-            20,
-            "#99D89D",
-            40,
-            "#66BF85",
-            60,
-            "#33A477",
-            85,
-            "#018571",
-            100,
-            "#2EAA2F"],
+              0,
+              "#fffbc3",
+              100,
+              "#850026"],
           
             "fill-outline-color": "#ffffff",
           
@@ -164,7 +172,7 @@ map2.on('click', 'pm2019', function (e) {
       .setLngLat(e.lngLat)
       .setHTML('<h2>'+country+'</h2>'
           +'<h4>'+'2019: '+lastMeasure+' micrograms per cubic metre'+'</h4>'
-          + '<p>'+rank+' in the world'+'</p>')
+          + '<p>'+'Rank: '+rank+' in the world'+'</p>')
       .addTo(map2);
 });
 // Change the cursor to a pointer when the mouse is over the us_states_elections layer.
