@@ -66,21 +66,27 @@ map.on("load", function () {
 map.on('click', 'pmExposure', function (e) {
     var firstMeasure = e.features[0].properties['1990'];
     var lastMeasure =  e.features[0].properties['2019'];
+   // var pctDiff =  absoluteValue(e.features[0].properties['exposure_perc_diff']);
     var pctDiff =  e.features[0].properties['exposure_perc_diff'];
     var country =  e.features[0].properties['ADMIN_x'];
     var rank = e.features[0].properties['rank'];
+    var direction = isItIncreasing(e.features[0].properties['exposure_perc_diff']);
+    var arrow = arrowUp(e.features[0].properties['exposure_perc_diff']);
     
     firstMeasure = firstMeasure;
     lastMeasure = lastMeasure;
     country = country;
     pctDiff = pctDiff.toFixed(0);
     rank = rank;
+    direction = direction
+    arrow = arrow
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
-        .setHTML('<h2>'+country+' | No. '+rank+' in the world'+'</h2>'
+        .setHTML('<h2>'+country+'</h2>'
+            + '<p>'+arrow+pctDiff+direction+'</p>'
             +'<h4>'+'1990: '+firstMeasure+' micrograms per cubic metre'+'</h4>'
             +'<h4>'+'2019: '+lastMeasure+' micrograms per cubic metre'+'</h4>'
-            + '<p>'+pctDiff+' percent since 1990'+'</p>')
+            )
         .addTo(map);
 });
 // Change the cursor to a pointer when the mouse is over the us_states_elections layer.
@@ -91,6 +97,37 @@ map.on('mouseenter', 'pmExposure', function () {
 map.on('mouseleave', 'pmExposure', function () {
     map.getCanvas().style.cursor = '';
 });
+
+function isItIncreasing(d) {
+  if (d > 0) {
+      return " percent increase since 1990"
+  }
+  if (d = 0) {
+    return "  percent - No change in PM2.5 concentration since 1990"
+  }
+  else {
+      return " percent decrease since 1990"
+
+  }
+}
+
+// function absoluteValue(d){
+//   if (d < 0) {
+//     pctDiff = Math.abs(pctDiff.toFixed(0))
+//   }
+//   else{
+//     pctDiff = pctDiff.toFixed(0)
+//   }
+// }
+
+function arrowUp(d) {
+  if (d > 0) {
+      return "<i class='arrow up'></i>"
+  }
+  else {
+      return "<i class='arrow down'></i>"
+  }
+}
 
 //Map 2
 mapboxgl.accessToken = 'pk.eyJ1IjoiamJsYWVzZXIiLCJhIjoiY2t4OGVtY3FmMTh6YTJ4cXU1NWY5aXUxMiJ9.DJNRPOrzDpL4YDzTQXxaCQ';
