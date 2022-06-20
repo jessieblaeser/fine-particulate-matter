@@ -25,7 +25,7 @@ map.on("load", function () {
           type: "fill",
           source: {
             type: "geojson",
-            data: "data/exposureSix.geojson",
+            data: "data/exposureSeven.geojson",
           },
           minzoom: 0,
 
@@ -38,19 +38,19 @@ map.on("load", function () {
                 ['linear'],
               ["get", "exposure_perc_diff"],
               -100,
-              "#a6611a",
+              "#018571",
               -50,
-              "#dfc27d",
+              "#80cdc1",
               0,
               "#f5f5f5",
               50,
-              "#80cdc1",
+              "#dfc27d",
               100,
-              "#018571",
+              "#a6611a",
               101,
-              "#ffffff"]
+              "#ffffff"],
           
-          // "fill-outline-color": "#ffffff",
+           "fill-outline-color": "#ffffff",
             
     
         }
@@ -73,7 +73,7 @@ map.on('click', 'pmExposure', function (e) {
     firstMeasure = firstMeasure;
     lastMeasure = lastMeasure;
     country = country;
-    pctDiff = pctDiff;
+    pctDiff = pctDiff.toFixed(0);
     rank = rank;
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
@@ -118,7 +118,7 @@ map2.on("load", function () {
         type: "fill",
         source: {
           type: "geojson",
-          data: "data/exposureSix.geojson",
+          data: "data/exposureSeven.geojson",
         },
         minzoom: 0,
 
@@ -141,9 +141,9 @@ map2.on("load", function () {
             85,
             "#018571",
             100,
-            "#2EAA2F"]
-        
-        // "fill-outline-color": "#ffffff",
+            "#2EAA2F"],
+          
+            "fill-outline-color": "#ffffff",
           
   
       }
@@ -151,5 +151,28 @@ map2.on("load", function () {
       "waterway-label"
     );
 
-    //create popup 
+     // Create the popup
+map2.on('click', 'pm2019', function (e) {
+  var lastMeasure =  e.features[0].properties['2019'];
+  var country =  e.features[0].properties['ADMIN_x'];
+  var rank = e.features[0].properties['rank'];
+  
+  lastMeasure = lastMeasure;
+  country = country;
+  rank = rank;
+  new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML('<h2>'+country+'</h2>'
+          +'<h4>'+'2019: '+lastMeasure+' micrograms per cubic metre'+'</h4>'
+          + '<p>'+rank+' in the world'+'</p>')
+      .addTo(map2);
+});
+// Change the cursor to a pointer when the mouse is over the us_states_elections layer.
+map2.on('mouseenter', 'pm2019', function () {
+  map2.getCanvas().style.cursor = 'pointer';
+});
+// Change it back to a pointer when it leaves.
+map2.on('mouseleave', 'pm2019', function () {
+  map2.getCanvas().style.cursor = '';
+});
 })
