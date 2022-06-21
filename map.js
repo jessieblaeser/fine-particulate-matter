@@ -76,14 +76,15 @@ map.on('click', 'pmExposure', function (e) {
     firstMeasure = firstMeasure;
     lastMeasure = lastMeasure;
     country = country;
-    pctDiff = pctDiff.toFixed(0);
+    pctDiff = Math.abs(pctDiff.toFixed(0));
     rank = rank;
     direction = direction
     arrow = arrow
     new mapboxgl.Popup()
         .setLngLat(e.lngLat)
         .setHTML('<h2>'+country+'</h2>'
-            + '<p>'+arrow+pctDiff+direction+'</p>'
+            + '<p><i class='+arrow+'></i></p>' 
+            + '<p>'+'<i class='+arrow+'></i>'+pctDiff+direction+'</p>'
             +'<h4>'+'1990: '+firstMeasure+' micrograms per cubic metre'+'</h4>'
             +'<h4>'+'2019: '+lastMeasure+' micrograms per cubic metre'+'</h4>'
             )
@@ -102,9 +103,9 @@ function isItIncreasing(d) {
   if (d > 0) {
       return " percent increase since 1990"
   }
-  if (d = 0) {
-    return "  percent - No change in PM2.5 concentration since 1990"
-  }
+  // elif (d = 0) {
+  //   return "  percent - No change in PM2.5 concentration since 1990"
+ // }
   else {
       return " percent decrease since 1990"
 
@@ -122,10 +123,10 @@ function isItIncreasing(d) {
 
 function arrowUp(d) {
   if (d > 0) {
-      return "<i class='arrow up'></i>"
+      return "'arrow up'"
   }
   else {
-      return "<i class='arrow down'></i>"
+      return "'arrow down'"
   }
 }
 
